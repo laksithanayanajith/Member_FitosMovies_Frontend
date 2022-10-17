@@ -1,0 +1,45 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="sidenav">
+    <div class="login-main-text">
+       <h2 id="letters">We are <br><br><br> more than <br><br><br> just a <br><br><br>cinema</h2>
+    </div>
+ </div>
+
+ <div class="main">
+    <div class="col-md-6 col-sm-12">
+       <div class="login-form container-lg center">
+        <button type="button" routerLink="/home" mat-fab color="primary"><mat-icon>arrow_back</mat-icon></button> <br><br>
+          <form (submit)="loginMember()" [formGroup]="form">
+             <div class="form-group">
+                <label>Username</label>
+                <input type="text" class="form-control form-control-lg" formControlName="username" placeholder="Enter your Username..." required />
+             </div>
+             <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control form-control-lg" formControlName="password" placeholder="Password here..." required />
+             </div>
+             <button type="submit" mat-flat-button color="primary">Login</button>
+             <button type="reset" mat-stroked-button color="warn">Clear</button>
+             <br><br>
+             <p>Not yet member ? &nbsp;
+             <a routerLink="/registration" class="link-info">Register</a></p>
+          </form>
+       </div>
+    </div>
+ </div>
+
+ <div>
+    <footer class="text-center text-white fixed-bottom" style="background-color: #641010;">
+        <!-- Copyright -->
+        <div class="text-xl-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2022 Copyright:
+          <a class="text-white" href="https://www.google.com/">FITOSMOVIES</a>
+          The Online Stream Platform &nbsp; &nbsp;
+        </div>
+        <!-- Copyright -->
+      </footer>
+ </div>

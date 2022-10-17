@@ -1,0 +1,37 @@
+<div class="container">
+
+    <h1>Tickets</h1>
+
+    <div class="container">
+      <span><button type="button" mat-raised-button color="primary" routerLink="addnew">Add new +</button></span>
+    </div>
+  </div>
+
+    <div class="container-grid" align="center">
+      <mat-grid-list cols="5" rowHeight="1:1" gutterSize="10px">
+        <div *ngIf="viewtickets.length > 0">
+            <div *ngFor="let ticket of viewtickets; let index = index">
+        
+            <mat-grid-tile>
+              <div>
+                <h1 class="ticket-movie-name">
+                  #{{ticket.ticket_id}}
+                </h1><br>
+  
+                <p>
+                  Director Id &nbsp;{{ticket.movie_owner}}<br>
+                  Movie Id &nbsp;{{ticket.movie_id}}<br>
+                {{ticket.show_date}}<br>
+                 <b class="price">Rs {{ ticket.price}}/=</b>
+                 </p><br>
+  
+                 <div>
+                 <button type="button" value="delete" name="delete" mat-fab color="warn" (click)="delete(ticket.ticket_id)"><mat-icon>delete</mat-icon></button> &nbsp;
+                 </div>
+              </div>
+            </mat-grid-tile>
+        
+            </div>
+        </div>
+        </mat-grid-list>
+      </div>

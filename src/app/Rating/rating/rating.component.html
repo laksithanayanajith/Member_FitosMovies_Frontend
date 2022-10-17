@@ -1,0 +1,15 @@
+<form (submit)="saveChangesForm()" [formGroup]="form" *ngIf="form">
+
+    <div class="form-group" class="rating-length">
+
+        <ngx-star-rating formControlName="mark" [id]="'mark'"></ngx-star-rating>
+
+        <label class="text-primary" for="moviename">Your Rating</label>
+        <textarea class="form-control form-control-lg" id="form-rating" type="text" formControlName="description" placeholder="Say your words about this movie..."></textarea>
+        <small id="error" class="text-danger form-text text-muted">{{GetErrorMessageFieldDescription()}}</small>
+        <br>
+        <button type="submit" mat-flat-button color="primary" *ngIf="form.valid">Save</button> &nbsp;
+        <a href="https://www.google.com" target="_blank" type="button" mat-stroked-button color="warn" *ngIf="form.invalid">Get Help ?</a> &nbsp;
+        <button type="button" mat-stroked-button color="warn" (click)="clear()">Cancel</button>
+    </div>
+</form>

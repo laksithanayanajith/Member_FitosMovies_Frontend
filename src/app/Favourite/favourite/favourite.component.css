@@ -1,0 +1,103 @@
+.container{
+    margin: 30px;
+    width: 80%;
+}
+
+.container-grid{
+    margin: 30px;
+    width: 97%;
+}
+
+.movie-name{
+    font-variant: normal;
+    font-size: medium;
+    font-display: initial;
+    font-weight: bold;
+    color: black;
+}
+
+#movie-genre{
+    font-variant: normal;
+    font-size: small;
+    font-display: initial;
+    color: gray;
+}
+
+.new-movie{
+    background-color: yellow;
+  border: none;
+  color: red;
+  font-weight: bolder;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.fav-icon-added{
+    background-color: white;
+    color: red;
+}
+
+.fav-icon-not-added-yet{
+    background-color: wheat;
+    color: white;
+}
+
+.search{
+    margin-left: 1rem;
+    width: 50%;
+    color: blueviolet;
+    font-size: medium;
+    font-weight: lighter;
+    font-style: italic;
+}
+
+.reviews{
+    background-color: orange;
+    color: beige;
+}
+
+.view{
+    background-color: blue;
+    color: aliceblue;
+}
+
+.table-index{
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.information{
+    margin-top: 10px;
+    margin-left: 80px;
+    width: 92%;
+}
+
+table td{
+    color: gray;
+}
+
+.btnmargin{
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-right: 7px;
+}
+
+.websitebutton{
+    color: blue;
+    background-color: white;
+}
+
+.emailbutton{
+    color: white;
+    background-color: blue;
+}
+
+#pagination{
+    height: 50px;
+    background-color: blueviolet;
+    color: white;
+}

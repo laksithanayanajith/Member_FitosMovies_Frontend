@@ -1,0 +1,37 @@
+<div>
+    <br><br><br><br><br>
+    <h1 align="center"><button type="button" routerLink="/home" mat-fab color="primary"><mat-icon>arrow_back</mat-icon></button> Registration</h1>   
+    <form (submit)="Register()" [formGroup]="form">  
+        <div class="container">   
+            <label class="font-monospace text-capitalize">Name : </label>   
+            <input type="text" formControlName="name" class="form-control form-control-lg input-group-lg" placeholder="Enter your name..." name="name" required>
+            <small id="error" class="text-danger form-text text-muted">{{GetErrorMessageFieldName()}}</small><br>
+
+            <label>Address : </label>   
+            <input type="text" formControlName="address" class="form-control form-control-lg input-group-lg" placeholder="Enter address..." name="address" required>
+            <small id="error" class="text-danger form-text text-muted">{{GetErrorMessageFieldAddress()}}</small><br>
+            
+            <label>Telephone : </label>   
+            <input type="text" formControlName="telephone" class="form-control form-control-lg input-group-lg" placeholder="Enter your phone number..." name="telephone" required>
+            <small id="error" class="text-danger form-text text-muted">{{GetErrorMessageFieldTelephone()}}</small><br>
+
+            <label>Username : </label>   
+            <input type="text" formControlName="username" class="form-control form-control-lg input-group-lg" placeholder="create your username..." name="username" required>
+            <small id="error" class="text-danger form-text text-muted">{{GetErrorMessageFieldUsername()}}</small><br>
+
+            <label>E-mail : </label>   
+            <input type="email" formControlName="email" class="form-control form-control-lg input-group-lg" placeholder="Enter your E-mail..." name="email" required>
+            <small id="error" class="text-danger form-text text-muted">{{GetErrorMessageFieldEmail()}}</small><br>
+
+            <label>Password : </label>   
+            <input type="password" formControlName="password" class="form-control form-control-lg input-group-lg" placeholder="give your password..." name="password" required>
+            <small id="error" class="text-danger form-text text-muted">{{GetErrorMessageFieldPassword()}}</small><br>
+
+            <button type="submit" class="submit-btn" name="submit" color="primary" *ngIf="form.valid" mat-flat-button>Register</button>  &nbsp;
+            <button type="reset" name="cancel" class="cancelbtn" color="warn" mat-flat-button> Cancel</button> 
+            <br>
+             <p align="center">Already member ? &nbsp;
+             <a align="center" routerLink="/login" class="link-info">Login</a></p>    
+        </div>   
+    </form>
+</div>

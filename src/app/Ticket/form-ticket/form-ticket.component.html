@@ -1,0 +1,44 @@
+<form (submit)="saveChangesForm()" [formGroup]="form" *ngIf="form">
+
+    <div class="form-group">
+        <label class="text-primary" for="movieid">Movie ID</label>
+        <input class="form-control form-control-lg" type="text" formControlName="movie_id" placeholder="Movie id here...">
+        <small id="error" class="text-danger form-text text-muted">{{GetErrorMessageFieldMovieID()}}</small>
+    </div>
+
+    <br>
+
+    <div class="form-group">
+        <label class="text-primary" for="movieownerid">Movie Owner ID</label>
+        <input class="form-control form-control-lg" type="text" formControlName="movie_owner" placeholder="Movie owner id here...">
+        <small id="error" class="text-danger form-text text-muted">{{GetErrorMessageFieldOwnerID()}}</small>
+    </div>
+
+    <br>
+
+    <mat-card class="form-group">
+        <mat-calendar [(selected)]="selected"></mat-calendar>
+        <p>{{selected}}</p>
+      </mat-card>
+      
+    <br>
+
+    <div class="form-group">
+        <label class="text-primary" for="price">Show Date</label>
+        <input class="form-control form-control-lg" type="text" formControlName="show_date" placeholder="Copy and paste show date...">
+        <small id="error" class="text-danger form-text text-muted"></small>
+    </div>
+
+    <div class="form-group">
+        <label class="text-primary" for="price">Price</label>
+        <input class="form-control form-control-lg" type="text" formControlName="price" placeholder="Movie price here...">
+        <small id="error" class="text-danger form-text text-muted">{{GetErrorMessageFielPrice()}}</small>
+    </div>
+
+    <div>
+        <br>
+        <button type="submit" mat-flat-button color="primary" *ngIf="form.valid">Save</button> &nbsp;
+        <a type="button" mat-stroked-button color="warn" (click)="help()" *ngIf="form.invalid">Get Help ?</a> &nbsp;
+        <button type="button" mat-stroked-button color="warn" routerLink="/movie" (click)="clear()">Cancel</button>
+    </div>
+</form>

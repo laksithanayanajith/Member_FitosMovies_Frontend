@@ -1,0 +1,57 @@
+<head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<div class="container">
+
+    <div class="movie-img-div">
+        <div *ngIf="movie">
+            <img [src]="movie.poster_link" alt="Poster" height="800px" width="500px" />
+        </div>
+    </div>
+
+        
+    <div class="movie-desc-div">
+        <div *ngIf="movie">
+            <br>
+            <h1 class="movie-name"> {{movie.name | uppercase}} </h1>
+            <p>#{{movie.id}}</p>
+            <p class="movie-genre"><mat-icon>category</mat-icon> {{ movie.genre }} </p>
+            <p class="movie-total-rating" *ngIf="total_rating" ><mat-icon>star</mat-icon> {{ total_rating }} Reviews </p>
+            <p>Directed by {{ movie.director_id }} </p>
+            <p>Released Year <b>{{ movie.year }}</b> </p>
+
+            <a type="button" value="atch" name="watch" mat-raised-button color="primary" href="{{movie.teaser_link}}" target="_blank"><mat-icon>smart_display</mat-icon> Watch Trailer</a> &nbsp;
+            <button type="button" *ngIf="getcurrentUserType()=='member'" value="Buy Now" name="buynomw" mat-raised-button class="buy-now" (click)="BuyNow(movie.id,movie.name)"><mat-icon><span class="material-symbols-outlined">token</span></mat-icon> Genarate Token</button> &nbsp;
+
+            <br>
+            <br>
+
+            <h2>About</h2>
+
+            <p>&nbsp; &nbsp; {{ movie.description }}</p>
+
+            <hr>
+
+            <br>
+
+            <h2>Audience reaction</h2>
+
+            <app-rating *ngIf="getcurrentUserType()=='member'" (onSaveChanges)="saveChanges($event)"></app-rating>
+
+              <br>
+
+            <p *ngIf="rating">
+                <b *ngFor="let rating of rating; let index = index">
+                    <b class="audience-reaction-mark"><mat-icon>star</mat-icon>{{ rating.mark }} /5</b>
+                    <br>
+                     &nbsp; &nbsp; <b class="audience-reaction-description"> {{ rating.description }} </b>
+                     <br>
+                     <b class="audience-reaction-member">by {{ rating.member_id }} at {{ rating.added_date_time }} </b> &nbsp;
+                     <button type="button" title="" value="Delete" name="delete" *ngIf="rating.member_id==getcurrentUser()" (click)="DeleteRating(rating.id)" mat-mini-fab color="warn"><mat-icon>delete</mat-icon></button>
+                     <br><br>
+                </b>
+            </p>
+        </div>
+    </div>
+</div>

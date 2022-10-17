@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+    <span align="center"><button type="button" mat-button routerLink="movie"><mat-icon>movies</mat-icon> &nbsp; Movie</button></span>
+    <span align="center"><button type="button" *ngIf="getType()=='member'" mat-button routerLink="favourite"><mat-icon><span class="material-symbols-outlined">favorite</span></mat-icon> &nbsp; Favourite</button></span>
+    <span align="center"><button type="button" *ngIf="getType()=='admin'" mat-button routerLink="ticket"><mat-icon><span class="material-symbols-outlined">book_online</span></mat-icon> &nbsp; Ticket</button></span>
+    <span align="right" class="right-content">
+        <span align="right" class="">Welcome! {{getcurrentMember()}}</span>&nbsp;
+        <span align="right" class="" *ngIf="getType()=='admin'"><mat-icon><span class="material-symbols-outlined">verified_user</span></mat-icon></span>&nbsp; &nbsp; &nbsp;
+        <span><mat-icon>light_mode</mat-icon><app-dark-mode></app-dark-mode><mat-icon>dark_mode</mat-icon></span> &nbsp;
+        <span align="right" class="today">{{Today}}</span>
+        <span><button type="button" (click)="SignOut()" mat-button><mat-icon>logout</mat-icon> &nbsp; Logout</button></span>
+    </span>
+</mat-toolbar>

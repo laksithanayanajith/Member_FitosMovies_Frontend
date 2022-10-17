@@ -1,0 +1,47 @@
+
+<div class="container-grid" align="center">
+    <mat-grid-list cols="5" rowHeight="1:2.05" gutterSize="10px">
+      <div *ngIf="viewmovie.length > 0">
+          <div *ngFor="let movie of viewmovie; let index = index">
+      
+              <mat-grid-tile>
+              <div data-aos="fade-down"
+              data-aos-easing="linear"
+              data-aos-duration="1500">
+                  <div>
+                    <div align="right">
+                        <b *ngIf="Today==movie.added_date_time" align="right" class="new-movie">NEW!</b> &nbsp;
+                        <!-- <button type="button" color="primary" mat-mini-fab *ngIf="movie.id!=getMovieId()" (click)="AddedFavourite(movie.id)"><mat-icon>favorite</mat-icon></button> -->
+                       
+                        <div *ngIf="getCurrentUserType()=='member'">
+                          <button type="button" class="fav-icon-added" mat-mini-fab *ngIf="isFavorite(movie.id)" (click)="RemoveFavourite(movie.id, movie.name)"><mat-icon>favorite</mat-icon></button>
+                     
+                        <button type="button" color="primary" mat-mini-fab *ngIf="!isFavorite(movie.id)" (click)="AddedFavourite(movie.id, movie.name)"><mat-icon>favorite</mat-icon></button>
+                        </div>
+                    </div>
+                      <img [src]="movie.poster_link" alt="Poster" height="550px" width="350px">
+                  </div><br>
+                  <div align="left" class="movie-name" data-aos="fade-zoom-in"
+                  data-aos-easing="ease-in-back"
+                  data-aos-delay="2000"
+                  data-aos-offset="0">
+                    {{movie.name | uppercase}}
+                    <br>
+                  <p align="left" id="movie-genre"><mat-icon>category</mat-icon>{{movie.genre}}</p>
+                  </div>
+                  
+                  <div data-aos="fade-zoom-in"
+                  data-aos-easing="ease-in-back"
+                  data-aos-delay="2500"
+                  data-aos-offset="0">
+                    <a type="button" value="watch" name="watch" mat-fab color="primary" href="{{movie.teaser_link}}" target="_blank"><mat-icon>smart_display</mat-icon></a> &nbsp;
+                    <button type="button" value="details" name="details" mat-fab class="reviews" (click)="DisplayTotalRatingByMovieId(movie.id)"><mat-icon>reviews</mat-icon></button> &nbsp;
+                    <button type="button" value="details" name="details" mat-fab class="view" (click)="viewnow(movie.id)"><mat-icon>visibility</mat-icon></button> &nbsp;                  </div>
+              </div>
+              <br>
+              </mat-grid-tile>
+      
+          </div>
+      </div>
+      </mat-grid-list>
+  </div>
